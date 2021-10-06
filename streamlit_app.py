@@ -1,35 +1,18 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-
-DISPLAY_TEXT = "Display Text"
-DISPLAY_DATA = "Display Data"
+import importlib
 
 # Set wide display
 st.set_page_config(layout="wide")
 
-# Side Bar
-## Create a page selector (radio or )
-page = st.sidebar.radio("Choose your page:", 
-                          [
-                            DISPLAY_TEXT, 
-                            DISPLAY_DATA, 
-                            ]
-                        ) 
-## Links
-links = [
-        "* [Streamlit Cheat Sheet](https://share.streamlit.io/daniellewisdl/streamlit-cheat-sheet/app.py)",
-        "* [Streamlit Gallery](https://streamlit.io/gallery)",
-        ]
-st.sidebar.markdown("Links:") 
-st.sidebar.markdown("\n".join(links)) 
+# Upper menu
+c1, c2, c3 = st.columns([0.1, 0.8, 0.1])
+c1.markdown("QR")
+c2.write("Pycon Chile - Noviembre 2021") 
+c2.markdown("Created by [sebastiandres](https://sebastiandres.xyz)") 
+raw_slide_number = c3.number_input("", min_value=0, max_value=3, step=1)
+slide_number = int(raw_slide_number)
 
-## Autor
-st.sidebar.markdown("Created by [sebastiandres](https://sebastiandres.xyz)") 
-
-if page == DISPLAY_TEXT:
-    from pages import display_text
-    display_text.display_page(DISPLAY_TEXT)
-elif page == DISPLAY_DATA:
-    from pages import display_data
-    display_data.display_page(DISPLAY_DATA)
+# Display the slides
+module_str = f"slides.slide_{slide_number:02d}"
+current_slide = importlib.import_module(module_str)
+current_slide.display()
