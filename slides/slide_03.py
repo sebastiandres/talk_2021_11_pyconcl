@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-def display(my_title = ""):
+def display(my_title = "", show_code=False):
     """Creates the custom content of a page.
 
     args:

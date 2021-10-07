@@ -1,18 +1,28 @@
 import streamlit as st
 import importlib
+import glob
 
-# Set wide display
+# Config and setup
 st.set_page_config(layout="wide")
+slide_files = sorted(glob.glob("slides/slide_*.py"))
+N = len(slide_files)
+if 'slide_number' not in st.session_state:
+	st.session_state.slide_number = 0
 
 # Upper menu
-c1, c2, c3 = st.columns([0.1, 0.8, 0.1])
-c1.markdown("QR")
-c2.write("Pycon Chile - Noviembre 2021") 
-c2.markdown("Created by [sebastiandres](https://sebastiandres.xyz)") 
-raw_slide_number = c3.number_input("", min_value=0, max_value=3, step=1)
-slide_number = int(raw_slide_number)
+c1, c2, c3, c4 = st.columns([12, 1, 1, 1])
+c1.markdown("###### Pycon Chile, Noviembre 2021.")
+c1.markdown("###### **WebApps con Streamlit: ¡más fácil que la tabla del uno, poh!**")
+show_code = c1.checkbox("Mostrar código")
+#c1.markdown("###### Hecho en [![this is an image link](https://i.imgur.com/iIOA6kU.png)](https://www.streamlit.io/)&nbsp, with :heart: by [@sebastiandres](https://sebastiandres.xyz) &nbsp | &nbsp [![F](https://img.shields.io/twitter/follow/sebastiandres?style=social)](https://www.twitter.com/sebastiandres)")
+if c2.button("<") and st.session_state.slide_number>0:
+    st.session_state.slide_number -= 1
+if c4.button(">") and st.session_state.slide_number<N-1:
+    st.session_state.slide_number += 1
+c3.write(f"{st.session_state.slide_number}") # Put it after the buttons, so it gets updated accordingly
+st.markdown("---")
 
 # Display the slides
-module_str = f"slides.slide_{slide_number:02d}"
+module_str = slide_files[st.session_state.slide_number].replace("/",".").replace(".py","") #f"slides.slide_{st.session_state.slide_number:02d}"
 current_slide = importlib.import_module(module_str)
-current_slide.display()
+current_slide.display(show_code=show_code)
