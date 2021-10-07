@@ -23,8 +23,9 @@ c3.write(f"{st.session_state.slide_number}") # Put it after the buttons, so it g
 st.markdown("---")
 
 # Display the slides
-# module_str = slide_files[st.session_state.slide_number].replace("/",".").replace(".py","")
-#current_slide = importlib.import_module(module_str)
-#current_slide.display(show_code=show_code)
-from slides import slide_00
-slide_00.display(show_code=show_code)
+module_str = slide_files[st.session_state.slide_number].replace("/",".").replace(".py","")
+print(module_str)
+current_slide = importlib.import_module(module_str)
+current_slide.display(show_code=show_code)
+#from slides import slide_00
+#slide_00.display(show_code=show_code)
