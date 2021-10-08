@@ -6,6 +6,10 @@ import contextlib
 def skip_echo():
     yield None
 
+def documentation(my_function):
+    st.markdown(f"[API](https://docs.streamlit.io/en/stable/api.html#streamlit.{my_function})")
+    return
+
 '''
 def what4(text):
     st.markdown("**What for?**: " + text)
@@ -24,8 +28,4 @@ def breakline():
     st.markdown("---")
     return    
 
-def documentation(function):
-    breakline()
-    st.markdown(f"[Streamlit API documentation](https://docs.streamlit.io/en/stable/api.html#streamlit.{function})")
-    return
 '''
