@@ -7,6 +7,7 @@ from code.shared_functions import skip_echo
 def display(my_title = "", show_code=False):
     with st.echo("below") if show_code else skip_echo():
         st.title("¡Gracias!")
-        st.write("Espero la charla los inspire para comenzar a usar streamlit en sus proyectos.")
-        st.write("Favor responder la encuesta")
-        st.write("QR")
+        c1, c2 = st.columns([6, 4])
+        c1.image("images/encuestador.jpg")
+        c1.write("Espero la charla los inspire para comenzar a usar streamlit en sus proyectos.")
+        c1.write("QR")
