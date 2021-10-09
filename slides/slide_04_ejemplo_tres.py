@@ -20,7 +20,6 @@ def display(my_title = "", show_code=False):
         #    os.system('runipy train.ipynb')
 
         model = load_model('model')
-        # st.markdown('<style>body{color: White; background-color: DarkSlateGrey}</style>', unsafe_allow_html=True)
 
         st.title('My Digit Recognizer')
         st.markdown('''
@@ -33,7 +32,7 @@ def display(my_title = "", show_code=False):
         c1, c2, c3 = st.columns([3,3,3])
 
         with c1:
-            SIZE = 192
+            SIZE = 28*10
             #mode = st.checkbox("Draw (or Delete)?", True)
             canvas_result = st_canvas(
                 fill_color='#000000',
