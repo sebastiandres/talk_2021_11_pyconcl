@@ -2,12 +2,15 @@ import streamlit as st
 import importlib
 import glob
 
+# Parameters
+STARTING_SLIDE = 8
+
 # Config and setup
 st.set_page_config(layout="wide")
 slide_files = sorted(glob.glob("slides/slide_*.py"))
 N = len(slide_files)
 if 'slide_number' not in st.session_state:
-	st.session_state.slide_number = 0
+	st.session_state.slide_number = STARTING_SLIDE
 
 # Upper menu
 L, c1, c2, c3 = st.columns([8, .5, .5, 0.5])
