@@ -22,7 +22,7 @@ if c3.button(">") and st.session_state.slide_number<N-1:
 c2.write(f"{st.session_state.slide_number}") # Put it after the buttons, so it gets updated accordingly
 if st.session_state.slide_number>=2:
     L.markdown("###### **WebApps con Streamlit : ¡más fácil que la tabla del uno, poh!**")
-    L.markdown("Pycon Chile, Noviembre 2021, por Sebastián Flores ![this is an image link](./images/streamlit.png) @sebastiandres [sebastiandres.xyz](sebastiandres.xyz)")
+    L.markdown("Pycon Chile, Noviembre 2021, por Sebastián Flores ![this is an image link](https://raw.githubusercontent.com/sebastiandres/talk_2021_11_pyconcl/main/images/github.svg) @sebastiandres [sebastiandres.xyz](sebastiandres.xyz)")
     L.image("github.svg")
     L.markdown(
         "Made in [![this is an image link](https://i.imgur.com/iIOA6kU.png)](https://www.streamlit.io/)&nbsp, with :heart: by [@DataChaz](https://www.charlywargnier.com/) &nbsp | &nbsp [![Follow](https://img.shields.io/twitter/follow/datachaz?style=social)](https://www.twitter.com/datachaz) &nbsp | &nbsp [![this is an image link](https://i.imgur.com/thJhzOO.png)](https://www.buymeacoffee.com/cwar05)"
