@@ -3,17 +3,7 @@ import pandas as pd
 import numpy as np
 import cv2
 
-import os
-import numpy as np
-from tensorflow.keras.models import load_model
-from streamlit_drawable_canvas import st_canvas
-
 from code.shared_functions import skip_echo
-
-#@st.cache 
-def load_digits_model():
-    model = load_model('model')
-    return model
 
 def display(my_title = "", show_code=False):
     with st.echo("below") if show_code else skip_echo():
@@ -23,12 +13,18 @@ def display(my_title = "", show_code=False):
         st.caption("Webapp de XYZ - http://www.github.com/XYZ")
         with st.echo("above") if show_code else skip_echo():
 
-            model = load_digits_model()
+            import os
+            import numpy as np
+            from tensorflow.keras.models import load_model
+            from streamlit_drawable_canvas import st_canvas
 
-            c1, c2 = st.columns([3,6])
+            model = load_model('model')
+
+            st.markdown("Dibuja un dígito")
+
+            c1, c2, c3 = st.columns([3,3,3])
 
             with c1:
-                st.markdown("Dibuja un dígito")
                 SIZE = 28*10
                 canvas_result = st_canvas(
                     fill_color='#000000',
@@ -41,16 +37,21 @@ def display(my_title = "", show_code=False):
                     display_toolbar=True,
                     key='canvas')
 
-            if c1.button("Reconocer dígito"):       
+            if c2.button("Resize"):
                 img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
-                #rescaled = cv2.resize(img, (SIZE, SIZE), interpolation=cv2.INTER_NEAREST)
-                #c2.write('Model Input')
-                #c2.image(rescaled)
-                c2.image(img)
+                rescaled = cv2.resize(img, (SIZE, SIZE), interpolation=cv2.INTER_NEAREST)
+                c2.write('Model Input')
+                c2.image(rescaled)
+
+            if c3.button("Predict"):       
+                img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
+                rescaled = cv2.resize(img, (SIZE, SIZE), interpolation=cv2.INTER_NEAREST)
+                c2.write('Model Input')
+                c2.image(rescaled)
                 test_x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
                 val = model.predict(test_x.reshape(1, 28, 28))
-                c2.write(f'Predicción: {np.argmax(val[0])}')
-                c2.bar_chart(val[0])
+                c3.write(f'result: {np.argmax(val[0])}')
+                c3.bar_chart(val[0])
 
 
 if __name__=="__main__":
