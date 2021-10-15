@@ -3,7 +3,7 @@ import importlib
 import glob
 
 # Parameters
-STARTING_SLIDE = 0
+STARTING_SLIDE = 10
 
 # Config and setup
 st.set_page_config(layout="wide")
