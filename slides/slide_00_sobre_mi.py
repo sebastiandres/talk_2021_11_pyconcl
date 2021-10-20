@@ -4,10 +4,10 @@ import numpy as np
 
 from code.shared_functions import skip_echo
 
-def display(my_title = "", show_code=False):
+def display():
     c1, c2 = st.columns([9,1])
     c1.title("Sobre mí")
-    show_code = c2.checkbox("Mostrar código")
+    show_code = c2.checkbox("Código")
     with st.echo("below") if show_code else skip_echo():
         repo_path = "https://raw.githubusercontent.com/sebastiandres/talk_2021_11_pyconcl/main/images"
         # Streamlit, por favor, dame 2 columnas de anchos relativos 3 y 7

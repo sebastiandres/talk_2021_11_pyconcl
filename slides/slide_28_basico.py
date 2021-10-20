@@ -5,10 +5,9 @@ import numpy as np
 from code.shared_functions import skip_echo
 
 def display():
-
     c1, c2 = st.columns([9,1])
     c1.title("Elementos Básicos de Streamlit")
-    show_code = c2.checkbox("Mostrar código")
+    show_code = c2.checkbox("Código")
 
     st.markdown("---")
     with st.echo("below") if show_code else skip_echo():

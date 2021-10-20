@@ -7,7 +7,7 @@ from code.shared_functions import skip_echo
 def display():
     c1, c2 = st.columns([9,1])
     c1.title("Componentes de Streamlit")
-    show_code = c2.checkbox("Mostrar código")
+    show_code = c2.checkbox("Código")
     st.caption("Basado en https://share.streamlit.io/napoles-uach/mundaneapps/main/st_parade.py")
 
     with st.echo("above") if show_code else skip_echo():

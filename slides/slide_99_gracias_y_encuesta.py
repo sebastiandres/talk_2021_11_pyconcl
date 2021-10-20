@@ -4,9 +4,11 @@ import numpy as np
 
 from code.shared_functions import skip_echo
 
-def display(my_title = "", show_code=False):
+def display():
+    c1, c2 = st.columns([9,1])
+    c1.title("¡Gracias!")
+    show_code = c2.checkbox("Código")
     with st.echo("below") if show_code else skip_echo():
-        st.title("¡Gracias!")
         c1, c2 = st.columns([6, 4])
         c1.image("images/encuestador.jpg")
         c1.write("Espero la charla los inspire para comenzar a usar streamlit en sus proyectos.")

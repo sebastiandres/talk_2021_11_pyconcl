@@ -7,7 +7,7 @@ from code.shared_functions import skip_echo
 def display():
     c1, c2 = st.columns([9,1])
     c1.title("¿Donde vive streamlit?")
-    show_code = c2.checkbox("Mostrar código")
+    show_code = c2.checkbox("Código")
 
     with st.echo("above") if show_code else skip_echo():
         st.markdown("Además de librerías web (django, flask), en el nicho de dashboard y webapps son comunes las siguientes librerías:")

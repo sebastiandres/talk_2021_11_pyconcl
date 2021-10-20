@@ -7,7 +7,7 @@ from code.shared_functions import skip_echo
 def display():
     c1, c2 = st.columns([9,1])
     c1.title("¿Como funciona streamlit?")
-    show_code = c2.checkbox("Mostrar código")
+    show_code = c2.checkbox("Código")
 
     with st.echo("above") if show_code else skip_echo():
         c1, c2 = st.columns([6, 4])
