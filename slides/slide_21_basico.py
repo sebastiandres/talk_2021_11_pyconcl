@@ -15,13 +15,13 @@ def display():
         c1.button("Mi botón")
         c2.checkbox("Un Checkbox")
         c3.number_input("Input de número")
-        c4.slider("Slider numérico", min_value=0, max_value=100)
+        c4.text_input("Input de texto")
         c5.metric("Pycon Chile", "#1")
     
     st.markdown("---")
     with st.echo("below") if show_code else skip_echo():
         c1, c2, c3, c4, c5 = st.columns(5)
-        c1.text_input("Input de texto")
+        c1.slider("Slider numérico", min_value=0, max_value=100)
         c2.select_slider("Slider de Texto", options=["uno", "dos", "tres", "cuatro"])
         c3.radio("Radio", options=["AM", "FM", "Online"])
         c4.selectbox("¿Comida chilena?", options=["Sopaipilla", "Terremoto", "Mote con Huesillo", "Pastel de Choclo"])

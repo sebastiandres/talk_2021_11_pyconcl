@@ -17,10 +17,10 @@ def load_digits_model():
 def display():
     predicted_value = 0
     c1, c2 = st.columns([9,1])
-    c1.title("Ejemplo 3 - Reconocimiento dígitos")
+    c1.title("Ejemplo Usando componentes y Machine Learning")
     show_code = c2.checkbox("Código")
 
-    st.caption("Basado en https://github.com/rahulsrma26/streamlit-mnist-drawable")
+    st.caption("Reconocimiento dígitos - basado en https://github.com/rahulsrma26/streamlit-mnist-drawable")
 
     with st.echo("above") if show_code else skip_echo():
         # Cargar el modelo

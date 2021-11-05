@@ -1,4 +1,5 @@
 streamlit==1.0.0
+watchdog==2.1.6
 numpy
 tensorflow-cpu==2.4.0
 opencv-python-headless
@@ -9,3 +10,4 @@ scipy
 htbuilder
 streamlit_drawable_canvas==0.8.0
 pandas
+altair
