@@ -10,7 +10,7 @@ def display():
     show_code = c2.checkbox("Código")
 
     with st.echo("above") if show_code else skip_echo():
-        c1, c2 = st.columns([5, 5])
+        c1, c2 = st.columns([6, 4])
         # Columna izquierda
         c1.markdown("")
         c1.markdown("")
@@ -19,7 +19,7 @@ def display():
         c1.markdown("### Simple pero potente: ")
         c1.markdown("##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Programar con streamlit es como jugar con legos... está diseñado para encajar perfectamente y que puedas armar todo lo que quieras.")
         c1.markdown("### Batteries included: ")
-        c1.markdown("##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Incluye un sinfín de elementos de construcción, extensible mediante componentes, y por supuesto, todas tus librerías favoritas.")
+        c1.markdown("##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Incluye una colección de elementos de construcción, extensible mediante componentes, y por supuesto, con todas tus librerías favoritas.")
         c1.markdown("")
         if c1.button("¡OK, me interesa!"):
             st.balloons()

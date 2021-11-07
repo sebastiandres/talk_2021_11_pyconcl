@@ -15,20 +15,20 @@ def display():
         import streamlit.components.v1 as components
         # Datos de opciones de páginas
         options = ["Documentación oficial",
-                  "Tutorial",
-                  "Ejemplo de componente"]
-        descriptions = ["Documentación oficial de los componentess de Streamlit",
-                       "Tutorial de Componentes de Streamlit, realizado por Fanilo Andrianasolo (@andfanilo)",
-                       "Ejemplo de componente de captura de webcam"]
+                   "Tutorial",
+                   "Ejemplo de componente"]
+        descriptions = ["Documentación oficial de los componentes de Streamlit",
+                        "Tutorial de Componentes de Streamlit, realizado por Fanilo Andrianasolo (@andfanilo)",
+                        "Ejemplo de componente de captura de webcam"]
         urls = ["https://streamlit.io/components", 
                 "https://streamlit-components-tutorial.netlify.app/",
                 "https://share.streamlit.io/whitphx/streamlit-webrtc-example/main/app.py"]
         # Obtener la selección actual
-        str_sel = st.selectbox("Selecciona contenido sobre Componentes", options)
+        str_sel = st.selectbox("Selecciona contenido:", options)
         n_sel = options.index(str_sel)
         # Escribir descripción, url y desplegar contenido
         st.write(f"**Descripción**: {descriptions[n_sel]}")
-        st.write(f"**url**: {urls[n_sel]}")
+        st.write(f"**Enlace**: {urls[n_sel]}")
         st.write(f"**Contenido**:")
         components.iframe(urls[n_sel], height=800, scrolling=True)
         

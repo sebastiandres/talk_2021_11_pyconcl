@@ -8,7 +8,7 @@ def display():
     c11, c12 = st.columns([9,1])
     c11.title("¿Como organizar el contenido?")
     show_code = c12.checkbox("Código")
-    with st.echo("below") if show_code else skip_echo():
+    with st.echo("above") if show_code else skip_echo():
         st.markdown("## Verticalidad")
         st.markdown("Los elementos de la página se van generando e insertando en el orden que se van leyendo en el archivo.")
         display_type = st.selectbox('Elegir tipo de display', ["Column","Expander"])

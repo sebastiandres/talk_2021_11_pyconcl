@@ -7,7 +7,7 @@ STARTING_SLIDE = 0
 repo_path = "https://raw.githubusercontent.com/sebastiandres/talk_2021_11_pyconcl/main/images"
 
 # Config and setup
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Pycon Chile 2021", initial_sidebar_state="collapsed")
 slide_files = sorted(glob.glob("slides/slide_*.py"))
 N = len(slide_files)
 if 'slide_number' not in st.session_state:

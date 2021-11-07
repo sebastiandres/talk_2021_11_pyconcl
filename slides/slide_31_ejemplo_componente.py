@@ -17,8 +17,9 @@ def load_digits_model():
 def display():
     predicted_value = 0
     c1, c2 = st.columns([9,1])
-    c1.title("Ejemplo Usando componentes y Machine Learning")
+    c1.title("Ejemplo usando componentes y Machine Learning")
     show_code = c2.checkbox("Código")
+    predict = c2.button("Predecir")
 
     st.caption("Reconocimiento dígitos - basado en https://github.com/rahulsrma26/streamlit-mnist-drawable")
 
@@ -41,18 +42,26 @@ def display():
                 drawing_mode="freedraw", #if mode else "transform",
                 display_toolbar=True,
                 key='canvas')
-        # Pequeño delay para inicialización del canvas
-        time.sleep(0.5)
-        # En la segunda columna, cuando se tenga un dibujo, ejecuta codigo
-        if canvas_result is not None and canvas_result.image_data.sum().sum() != 255*SIZE*SIZE :     
-            img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
-            x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).reshape(1, 28, 28)
-            val = model.predict(x) # shape (1,10)
-            predicted_value = np.argmax(val[0])
-            c2.write(f'Predicción: **{predicted_value}**')
-            c2.bar_chart(val[0])
+        if predict:
+            # Pequeño delay para inicialización del canvas
+            time.sleep(0.5)
+            # En la segunda columna, cuando se tenga un dibujo, ejecuta codigo
+            if canvas_result is not None and canvas_result.image_data.sum().sum() != 255*SIZE*SIZE :     
+                img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
+                x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).reshape(1, 28, 28)
+                val = model.predict(x) # shape (1,10)
+                predicted_value = np.argmax(val[0])
+                c2.write(f'Predicción: **{predicted_value}**')
+                c2.bar_chart(val[0])
         # Mostrar algunos de los dígitos
-        with st.expander("¿Como son los ejemplos del Datast MNIST?"):
+        with st.expander("¿Qué es esto?"):
+            st.write("Se proporciona un canvas para dibujar y (tratar de) reconocer el dígito.")
+            st.write("La imagen dibujada por el usuario se escala para tener 28x28 pixeles.")
+            st.write("La imagen escalada se pasa a una red neural entrenada en ejemplos del MNIST dataset.")
+            st.write("La red neuronal posee 3 capas con 300, 50 y 10 neuronas.")
+            st.write("El MNIST dataset contiene 70,000 imágenes de 28x28 pixeles con dígitos.")
+        # Mostrar algunos de los dígitos
+        with st.expander("¿Cómo son los ejemplos del Datast MNIST?"):
             (x_train, y_train), (x_test, y_test) = mnist.load_data()
             c1, c2 = st.columns([3,9])
             digit = c1.number_input("Selecciona un dígito:", min_value=0, max_value=9, step=1, value=predicted_value)

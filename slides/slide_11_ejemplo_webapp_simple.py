@@ -41,10 +41,10 @@ def display():
             B = c2.slider("Blue", min_value=0, max_value=100, value=59, step=5)
             if st.button("Generar imagen en Blanco y Negro"):
                 original_filepath, bw_filepath = processing_function(uploaded_file, R, B, G)
-                c1, c2 = st.columns(2)
+                c1, c2, c3 = st.columns(3)
                 c1.write("Imagen original")
-                c1.image(original_filepath, width=200)
+                c1.image(original_filepath)
                 c2.write("Imagen blanco y negro")
-                c2.image(bw_filepath, width=200)
+                c2.image(bw_filepath)
                 with open(bw_filepath, "rb") as file_content:
-                    c2.download_button(label="Descargar imagen", data=file_content, file_name="converted.png")
+                    c3.download_button(label="Descargar imagen", data=file_content, file_name="converted.png")
