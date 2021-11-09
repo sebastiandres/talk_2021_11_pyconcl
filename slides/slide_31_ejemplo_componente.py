@@ -9,9 +9,12 @@ from streamlit_drawable_canvas import st_canvas
 from code.shared_functions import skip_echo
 from matplotlib import pyplot as plt
 
-#@st.cache
+#from tensorflow.keras.utils import object_identity
+
+#@st.cache(hash_funcs={object_identity.ObjectIdentityDictionarys: lambda _: None})¡
+@st.cache(allow_output_mutation=True)
 def load_digits_model():
-    model = load_model('model')
+    model = load_model('model.h5')
     return model
 
 def display():

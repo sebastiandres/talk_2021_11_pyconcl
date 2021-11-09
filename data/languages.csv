@@ -1,0 +1,34 @@
+keyword;ESP;ENG
+language_title;Idioma;Language
+parameters_title;Parámetros;Parameters
+functions_expander;Funciones;Functions
+add_function;Agregar función;Add new function
+clean_functions;Borrar funciones;Delete functions
+function_color;Color;Color
+graph_expander;Propiedades del gráfico;Graph configuration
+equation;Ecuación;Equation
+title_text;Título del gráfico;Title
+title_value;Mi titulo;My Custom Title
+xlabel_text;Nombre eje x;x label
+ylabel_text;Nombre eje y;y label
+xmin_text;Valor mínimo de x;x min
+xmax_text;Valor máximo de x;x max
+examples;Ejemplos de funciones;Examples
+error_warning;Se ha producido un error al evaluar la función.;Error when evaluating the function!
+error_advice;Por favor, modifica los parámetros e inténtalo de nuevo.;Please fix and try again.
+functions_link;Todas las [funciones](https://numpy.org/doc/stable/reference/routines.math.html);See all [functions](https://numpy.org/doc/stable/reference/routines.math.html)
+links_expander;Enlaces;Links
+links_md;"* [API de Streamlit](https://docs.streamlit.io/)
+* [Código en github](https://github.com/sebastiandres/xkcd_streamlit)
+
+Por [sebastiandres](https://linktr.ee/sebastiandres) el 2021-07-08
+
+Inspirado en [http://xkcdgraphs.com/](http://xkcdgraphs.com/)
+";"
+* [Streamlit API](https://docs.streamlit.io/)
+* [Code in github](https://github.com/sebastiandres/xkcd_streamlit)
+
+By [sebastiandres](https://linktr.ee/sebastiandres) on 2021-07-08
+
+Inspired on [http://xkcdgraphs.com/](http://xkcdgraphs.com/)
+"

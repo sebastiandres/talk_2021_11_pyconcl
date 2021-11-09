@@ -36,4 +36,4 @@ model.summary()
 model.fit(x_train, y_train, batch_size=32, epochs=20)
 model.evaluate(x_test, y_test)
 
-model.save('model')
+model.save('model.h5')
