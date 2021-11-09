@@ -23,8 +23,8 @@ def display():
                 fig = plt.figure(figsize=(16,6))
                 ax = fig.add_axes((0.1, 0.2, 0.8, 0.7))
                 # No idea what this is
-                ax.spines.right.set_color('none')
-                ax.spines.top.set_color('none')
+                #ax.spines.right.set_color('none')
+                #ax.spines.top.set_color('none')
                 # Eval the data
                 x = np.linspace(xmin, xmax, num=Nx) # So if we divide by x no errors
                 ymin_list, ymax_list = [], []
