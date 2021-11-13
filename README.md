@@ -6,7 +6,7 @@
 * **Contexto**: ¡Mi Quinta PyCon!
 
 ### Video de la Pycon
-* [https://youtu.be/qSn8in4QJYI?t=10869](https://youtu.be/qSn8in4QJYI?t=10869)
+[https://youtu.be/qSn8in4QJYI?t=10869](https://youtu.be/qSn8in4QJYI?t=10869)
 
 ### Slides de la presentación - interactivo
 
